@@ -34,7 +34,9 @@ searchBtn.addEventListener('click', async () => {
 async function fetchNewsQuery(query){
     try {
         const url = `http://newsapi.org/v2/everything?q=${query}&pageSize=10&apikey=${myapikey}`;
-        const response = await fetch(url);
+        const response = await fetch(url,{
+            referrerPolicy: "unsafe-url" 
+        });
         const data = await response.json();
         console.log(data);
         return data.articles;
